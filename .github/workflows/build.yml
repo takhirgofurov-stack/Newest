@@ -21,9 +21,9 @@ jobs:
 
       - name: Установить Gradle 8.14.3
         run: |
-          wget -q https://services.gradle.org/distributions/gradle-8.14.3-bin.zip
-          unzip -q gradle-8.14.3-bin.zip
-          echo "$HOME/gradle-8.14.3/bin" >> $GITHUB_PATH
+          wget -q https://services.gradle.org/distributions/gradle-8.14.3-bin.zip -O /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /opt
+          echo "/opt/gradle-8.14.3/bin" >> $GITHUB_PATH
 
       - name: Принять лицензии Android SDK
         run: yes | sdkmanager --licenses || true
